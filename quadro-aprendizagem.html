@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadro de Aprendizagem Expandido</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-page: #081017;
+        --bg-card: #121A25;
+        --header-bg: #0B1220;
+        --border-color: #1F2A3B;
+        --text-main: #F8FAFC;
+        --text-muted: #94A3B8;
+        --accent-cyan: #4BD5C6;
+        --color-green: #4ADE80;
+        --color-orange: #E89E46;
+        --color-blue: #60A5FA;
+        --color-purple: #C084FC;
+    }
+    body {
+        background-color: var(--bg-page);
+        color: var(--text-main);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        line-height: 1.6;
+    }
+    .pbl-container {
+        max-width: 1200px;
+        width: 100%;
+        background: var(--bg-page);
+    }
+    .pbl-header {
+        margin-bottom: 3rem;
+    }
+    .pbl-tag {
+        color: var(--accent-cyan);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 0.5rem;
+    }
+    .pbl-tag::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 2px;
+        background-color: var(--accent-cyan);
+    }
+    .pbl-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        letter-spacing: -1px;
+    }
+    .pbl-title span {
+        color: var(--accent-cyan);
+    }
+    .pbl-table {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--bg-card);
+    }
+    .pbl-header-cell {
+        background: var(--header-bg);
+        color: var(--text-main);
+        font-size: 1.05rem;
+        font-weight: 700;
+        padding: 1.25rem 1.5rem;
+        border-right: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid var(--border-color);
+    }
+    .pbl-header-cell:last-child {
+        border-right: none;
+    }
+    .pbl-body-cell {
+        padding: 1.75rem 1.5rem;
+        border-right: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+    }
+    .pbl-body-cell:last-child {
+        border-right: none;
+    }
+    .pbl-card-subtitle {
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+        color: var(--text-main);
+    }
+    .pbl-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.75rem 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        flex-grow: 1;
+    }
+    .pbl-list li {
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 1.25rem;
+    }
+    .pbl-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        line-height: 1;
+        color: var(--text-muted);
+    }
+    .pbl-rule {
+        font-size: 0.85rem;
+    }
+    .pbl-rule strong {
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+    .pbl-rule.green { color: var(--color-green); }
+    .pbl-rule.orange { color: var(--color-orange); }
+    .pbl-rule.blue { color: var(--color-blue); }
+    .pbl-rule.purple { color: var(--color-purple); }
+    @media (max-width: 900px) {
+        .pbl-table { grid-template-columns: 1fr; }
+        .pbl-header-cell, .pbl-body-cell { border-right: none; }
+        .pbl-title { font-size: 2.2rem; }
+    }
+</style>
+</head>
+<body>
+<div class="pbl-container">
+    <div class="pbl-header">
+        <div class="pbl-tag">Central de Decisões Pedagógicas</div>
+        <h1 class="pbl-title">Quadro de <span>Aprendizagem</span></h1>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px;">
+            Registre os dados, levante hipóteses fundamentadas e defina as rotas de investigação da equipe.
+        </p>
+    </div>
+
+    <div class="pbl-table">
+        <div class="pbl-header-cell">Fatos e Informações</div>
+        <div class="pbl-header-cell">Ideias e Hipóteses</div>
+        <div class="pbl-header-cell">Questões de Aprendizagem</div>
+        <div class="pbl-header-cell">Plano de Ação</div>
+
+        <div class="pbl-body-cell">
+            <div class="pbl-card-subtitle">O que a situação informa objetivamente?</div>
+            <ul class="pbl-list">
+                <li>Qual é o problema / o desafio?</li>
+                <li>Conhecemos todos os termos das informações?</li>
+                <li>Quais são os dados?</li>
+            </ul>
+            <div class="pbl-rule green"><strong>Restrição</strong>Sem julgamentos e deduções; apenas considerar informações e dados puros.</div>
+        </div>
+
+        <div class="pbl-body-cell">
+            <div class="pbl-card-subtitle">Como explicamos provisoriamente?</div>
+            <ul class="pbl-list">
+                <li>Possíveis causas?</li>
+                <li>Conexões entre os fatos observados.</li>
+            </ul>
+            <div class="pbl-rule orange"><strong>Mentalidade</strong>Toda ideia é uma hipótese a testar.</div>
+        </div>
+
+        <div class="pbl-body-cell">
+            <div class="pbl-card-subtitle">O que precisamos aprender?</div>
+            <ul class="pbl-list">
+                <li>Conceitos teóricos em aberto.</li>
+                <li>Evidências científicas necessárias.</li>
+            </ul>
+            <div class="pbl-rule blue"><strong>Formato</strong>Transformar dúvidas em perguntas de pesquisa.</div>
+        </div>
+
+        <div class="pbl-body-cell">
+            <div class="pbl-card-subtitle">O que será investigado e por quem?</div>
+            <ul class="pbl-list">
+                <li>Responsáveis por buscar artigos/guidelines.</li>
+                <li>Prazos para devolução e síntese.</li>
+            </ul>
+            <div class="pbl-rule purple"><strong>Critério</strong>Fontes de alto rigor acadêmico.</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
