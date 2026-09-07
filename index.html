@@ -129,12 +129,78 @@
         margin-bottom: 0.25rem;
         color: var(--text-main);
     }
+    .pbl-print {
+        float: right;
+        margin-top: -3.5rem;
+        background: transparent;
+        color: var(--accent-cyan);
+        border: 1px solid var(--accent-cyan);
+        border-radius: 8px;
+        padding: 0.6rem 1.1rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .pbl-print:hover {
+        background: rgba(75, 213, 198, 0.12);
+    }
     @media (max-width: 1100px) {
         .pbl-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
         .pbl-grid { grid-template-columns: 1fr; }
         .pbl-title { font-size: 2.2rem; }
+    }
+
+    /* Impressao: fundo branco, quatro colunas na folha deitada */
+    @media print {
+        @page {
+            size: A4 landscape;
+            margin: 12mm;
+        }
+        body {
+            background: #FFFFFF;
+            color: #000000;
+            padding: 0;
+            display: block;
+            font-size: 10pt;
+            line-height: 1.35;
+        }
+        .pbl-container { max-width: none; background: #FFFFFF; }
+        .pbl-print { display: none; }
+        .pbl-header { margin-bottom: 1rem; }
+        .pbl-tag { color: #000000; font-size: 8pt; margin-bottom: 0.2rem; }
+        .pbl-tag::before { background-color: #000000; }
+        .pbl-title { color: #000000; font-size: 20pt; margin-bottom: 0.4rem; }
+        .pbl-title span { color: #000000; }
+        .pbl-header p { color: #000000 !important; font-size: 10pt !important; }
+        .pbl-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 0;
+        }
+        .pbl-card {
+            background: #FFFFFF;
+            border: 1px solid #666666;
+            border-radius: 6px;
+            padding: 10px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        .pbl-card-title { color: #000000; font-size: 11pt; border-bottom: 1px solid #999999; }
+        .pbl-card-subtitle { color: #000000; margin-bottom: 0.6rem; }
+        .pbl-list { color: #000000; font-size: 9.5pt; margin-bottom: 0.8rem; }
+        .pbl-list li { margin-bottom: 0.5rem; }
+        .pbl-list li::before { color: #000000; }
+        .pbl-rule {
+            background: #F2F2F2;
+            border-left: 3px solid #666666;
+            color: #000000;
+            font-size: 8.5pt;
+            padding: 8px;
+        }
+        .pbl-rule strong { color: #000000; }
     }
 </style>
 </head>
@@ -143,6 +209,7 @@
     <div class="pbl-header">
         <div class="pbl-tag">Central de Decisões Pedagógicas</div>
         <h1 class="pbl-title">Quadro de <span>Aprendizagem</span> | PBL</h1>
+        <button class="pbl-print" onclick="window.print()">Imprimir o quadro</button>
         <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px;">
             Registre os dados, levante hipóteses fundamentadas e defina as rotas de investigação da equipe.
         </p>
